@@ -1,4 +1,4 @@
 
-public class EmptyingEdge {
+public class EmptyingEdge extends InputEdge {
 
 }

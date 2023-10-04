@@ -1,4 +1,4 @@
 
-public class OutputEdge {
+public class OutputEdge extends Edge{
 
 }

@@ -1,4 +1,4 @@
 
-public class PetriNet {
+public class PetriNet implements PetriNetInterface {
 
 }
