@@ -1,26 +1,49 @@
+import java.util.LinkedList;
 
 public class Place {
-	private int tokenNumber;
-	
-	public Place()
-	{
-		this.tokenNumber = 0;
+
+	// Instance Variables
+	private int tokensNumber;
+	private LinkedList<Edge> linkedEdgesList;
+
+	// Constructor
+	public Place() {
+		this.tokensNumber = 0;
 	}
-	
-	public void addTokens(int tokensToAdd)
-	{
-		this.tokenNumber += tokensToAdd;
+
+	// Setters and Getters
+
+	public int getTokensNumber() {
+		return tokensNumber;
 	}
-	public void removeTokens(int tokensToRemove)
-	{
-		this.tokenNumber -= tokensToRemove;
+
+	public void setTokensNumber(int tokenNumber) {
+		this.tokensNumber = tokenNumber;
 	}
-	public boolean checkIfTempty()
-	{
-		return this.tokenNumber == 0;
+
+	public void addEdgeToLinkedEdges(Edge edgeToAdd) {
+		linkedEdgesList.add(edgeToAdd);
 	}
-	public void empty()
-	{
-		this.tokenNumber = 0;
+
+	public void removeEdgeFromLinkedEdges(Edge edgeToRemove) {
+		linkedEdgesList.remove(edgeToRemove);
+	}
+
+	// Methods
+
+	public void addTokens(int tokensToAdd) {
+		this.setTokensNumber(this.getTokensNumber() + tokensToAdd);
+	}
+
+	public void removeTokens(int tokensToRemove) {
+		this.setTokensNumber(this.getTokensNumber() - tokensToRemove);
+	}
+
+	public boolean checkIfTempty() {
+		return this.getTokensNumber() == 0;
+	}
+
+	public void empty() {
+		this.setTokensNumber(0);
 	}
 }
