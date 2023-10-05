@@ -11,5 +11,9 @@ public class ZeroEdge extends InputEdge {
 	public boolean checkIfTriggerable() {
 		return this.getLinkedPlace().checkIfTempty();
 	}
+	
+	public void trigger() {
+		return;
+	}
 
 }
