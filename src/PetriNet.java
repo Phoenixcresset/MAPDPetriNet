@@ -117,12 +117,12 @@ public class PetriNet implements PetriNetInterface {
 	}
 	
 	public String toString() {
-		String afficherPetriNet = "Les places sont ";
+		String afficherPetriNet = "places : ";
 		
 		for (int i = 0; i<this.listOfPlaces.size();++i) afficherPetriNet += listOfPlaces.toString();
 		afficherPetriNet += " avec comme Edges : ";
 		for (int i = 0; i<this.listOfEdges.size();++i) afficherPetriNet += listOfEdges.toString();
-		afficherPetriNet += " avec comme Transistion : ";
+		afficherPetriNet += " avec comme Transistions : ";
 		for (int i = 0; i<this.listOfTransitions.size();++i) afficherPetriNet += listOfTransitions.toString();
 		
 		return "Notre réseau de PetriNet est composé de " + afficherPetriNet;
