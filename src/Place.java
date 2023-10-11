@@ -5,6 +5,7 @@ public class Place {
 	// Instance Variables
 	private int tokensNumber;
 	private LinkedList<Edge> linkedEdgesList;
+	
 
 	// Constructor
 	public Place() {
@@ -27,6 +28,10 @@ public class Place {
 
 	public void removeEdgeFromLinkedEdges(Edge edgeToRemove) {
 		linkedEdgesList.remove(edgeToRemove);
+	}
+	
+	public LinkedList<Edge> getLinkedEdgesList(){
+		return this.linkedEdgesList;
 	}
 
 	// Methods

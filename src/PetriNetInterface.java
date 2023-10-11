@@ -23,4 +23,6 @@ public interface PetriNetInterface {
 	public void removeZeroEdge(ZeroEdge zeroEdgeToRemove);
 
 	public void removeTransition(Transition transitionToRemove);
+	
+	public void linkPlaceWithTransistion(Place p, Transition t, Edge e);
 }
