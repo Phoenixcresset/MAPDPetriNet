@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class PetriNet implements PetriNetInterface {
@@ -8,9 +8,9 @@ public class PetriNet implements PetriNetInterface {
 	List<Transition> listOfTransitions;
 	
 	public PetriNet() {
-		listOfPlaces = new ArrayList<>();
-		listOfEdges = new ArrayList<>();
-		listOfTransitions = new ArrayList<>();
+		listOfPlaces = new LinkedList<>();
+		listOfEdges = new LinkedList<>();
+		listOfTransitions = new LinkedList<>();
 	}
 	
 	
@@ -51,12 +51,20 @@ public class PetriNet implements PetriNetInterface {
 	@Override
 	public void removePlace(Place placeToRemove) {		
 		// on doit supprimer les edges reliés à la place (donc j'ai rajouté un getter)
-		for (int i = 0; i<placeToRemove.getLinkedEdgesList().size();i++) {
+		for (int i = 0; i<placeToRemove.getLinkedEdgesList().size();++i) {
 			this.listOfEdges.remove(placeToRemove.getLinkedEdgesList().get(i)); // on le supprime du PetriNet
 			placeToRemove.removeEdgeFromLinkedEdges(placeToRemove.getLinkedEdgesList().get(i)); // on supprime les edges reliés à la place
 			
-			// on doit supprimer les edges reliés à la transistion
-			//TODO
+			// on doit supprimer les même edges reliés à la transistion 
+			// (je pars du postulat pas très opti de regarder toutes les transistions 
+			// et regarder si dans une transistion on a l'Edge associé)
+			for (int j = 0; j<this.listOfTransitions.size();++j) {
+				this.listOfTransitions.get(j).removeInputEdgeFromInputEdges(placeToRemove.getLinkedEdgesList().get(i));
+				j--;
+			}
+			
+			// Décrémenter l'indice pour éviter de sauter un élément
+			i--;
 		}
 		
 		// puis on supprime la place 
@@ -65,7 +73,7 @@ public class PetriNet implements PetriNetInterface {
 
 	@Override
 	public void removeInputEdge(InputEdge inputEdgeToRemove) {
-		this.listOfEdges.remove(inputEdgeToRemove); // on devra surement verifier
+		this.listOfEdges.remove(inputEdgeToRemove); // pas necessaire de supprimer la place ou transistion reliée
 	}
 
 	@Override
@@ -86,7 +94,19 @@ public class PetriNet implements PetriNetInterface {
 
 	@Override
 	public void removeTransition(Transition transitionToRemove) {
-		this.listOfTransitions.remove(transitionToRemove); // on doit remove les places et les transistions liés aussi
+		
+		// on doit remove les edges liées aussi mais pas forcement les places
+		for(int i = 0; i<transitionToRemove.getLinkedInputEdgesList().size();++i) {
+			// d'abord les InputEdges
+			this.listOfEdges.remove(transitionToRemove.getLinkedInputEdgesList().get(i));
+			// puis les OutputEdges
+			this.listOfEdges.remove(transitionToRemove.getLinkedOutputEdgesList().get(i));
+			
+			transitionToRemove.removeInputEdgeFromInputEdges(transitionToRemove.getLinkedOutputEdgesList().get(i));
+			transitionToRemove.removeOutputEdgeFromOutputEdges(transitionToRemove.getLinkedOutputEdgesList().get(i));
+			i--;
+		}
+		this.listOfTransitions.remove(transitionToRemove); 
 	}
 
 

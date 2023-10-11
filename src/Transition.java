@@ -29,6 +29,24 @@ public class Transition {
 		linkedOutputEdgesList.remove(edgeToRemove);
 	}
 
+	public void removeInputEdgeFromInputEdges(Edge edgeToRemove) {
+		if (edgeToRemove instanceof InputEdge) {
+			this.removeInputEdgeFromInputEdges((InputEdge)edgeToRemove);
+		}
+		if (edgeToRemove instanceof OutputEdge) {
+			this.removeOutputEdgeFromOutputEdges((OutputEdge) edgeToRemove);
+		}
+		
+	}
+	
+	public LinkedList<InputEdge> getLinkedInputEdgesList(){
+		return this.linkedInputEdgesList;
+	}
+	
+	public LinkedList<OutputEdge> getLinkedOutputEdgesList(){
+		return this.linkedOutputEdgesList;
+	}
+	
 	// Methods
 
 	public void step() {
@@ -50,4 +68,5 @@ public class Transition {
 			linkedOutputEdgesList.get(i).trigger();
 		}
 	}
+
 }
