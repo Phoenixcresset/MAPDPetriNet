@@ -113,7 +113,19 @@ public class PetriNet implements PetriNetInterface {
 	@Override
 	public void linkPlaceWithTransistion(Place p, Transition t, Edge e) {
 		// TODO Auto-generated method stub
+		// pour le moment je n'ai pas l'impression que ce soit necessaire ...
+	}
+	
+	public String toString() {
+		String afficherPetriNet = "Les places sont ";
 		
+		for (int i = 0; i<this.listOfPlaces.size();++i) afficherPetriNet += listOfPlaces.toString();
+		afficherPetriNet += " avec comme Edges : ";
+		for (int i = 0; i<this.listOfEdges.size();++i) afficherPetriNet += listOfEdges.toString();
+		afficherPetriNet += " avec comme Transistion : ";
+		for (int i = 0; i<this.listOfTransitions.size();++i) afficherPetriNet += listOfTransitions.toString();
+		
+		return "Notre réseau de PetriNet est composé de " + afficherPetriNet;
 	}
 
 }
