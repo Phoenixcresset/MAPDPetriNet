@@ -10,6 +10,7 @@ README pour l'utilisation du PetriNet
 - Jusqu'à où on pousse pour les erreurs ? Ca a l'air difficile et surtout fastidieux de toutes les faire
 - Il faut faire des tests unitaires
 - Est-ce toujours pertinent de donner à une Place accès à ses Edges ? Puisqu'elle n'intervient jamais dessus directement
+- J'ai l'impression que ça ne sert pas à grand chose d'ajouter des éléments dans le PétriNet... Peut-être que l'extension d'interface va en profiter
 
 
 # Grille d'Auto-évaluation
