@@ -10,17 +10,25 @@ public class Edge {
 	// l'impression qu'ils les mélangent aussi, je demanderais aux profs.
 	private int weight;
 	private int value;
+	/** The transition linked to this edge */
+	private Transition linkedTransition;
+	/** The place linked to this edge */
+	private Place linkedPlace;
 
 	// Constructor
 	/**
-	 * Contructs an edge with the given weight and value.
+	 * Contructs an edge with the given weight and value, linking the specified Place and Transition.
 	 * 
 	 * @param weight the weight of this edge
 	 * @param value  the value of this edge
+	 * @param linkedTransition the transition linked to this edge
+	 * @param linkedPlace the place linked to this edge
 	 */
-	public Edge(int weight, int value) {
+	public Edge(int weight, int value, Transition linkedTransition, Place linkedPlace) {
 		this.weight = weight;
 		this.value = value;
+		this.linkedTransition = linkedTransition;
+		this.linkedPlace = linkedPlace;
 	}
 
 	// Setters and Getters
@@ -59,6 +67,40 @@ public class Edge {
 	 */
 	public void setValue(int value) {
 		this.value = value;
+	}
+	
+	// Peut-être appeler les méthodes des places et transitions pour ajouter cet edge à leur liste dans les setters ? jsp
+
+	/**
+	 * Returns the transition linked to this edge.
+	 * @return the transition linked to this edge.
+	 */
+	public Transition getLinkedTransition() {
+		return linkedTransition;
+	}
+
+	/**
+	 * Replaces the transition linked to this edge by the specified transition.
+	 * @param linkedTransition the new transition to connect to
+	 */
+	public void setLinkedTransition(Transition linkedTransition) {
+		this.linkedTransition = linkedTransition;
+	}
+
+	/**
+	 * Returns the place linked to this edge.
+	 * @return the place linked to this edge
+	 */
+	public Place getLinkedPlace() {
+		return linkedPlace;
+	}
+
+	/**
+	 * Replaces the place linked to this edge by the specified place.
+	 * @param linkedPlace the new place to connect to
+	 */
+	public void setLinkedPlace(Place linkedPlace) {
+		this.linkedPlace = linkedPlace;
 	}
 
 	// Methods
