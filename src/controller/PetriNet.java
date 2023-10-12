@@ -15,7 +15,7 @@ import elements.ZeroEdge;
 /**
  * Class used to create and edit a PetriNet.
  */
-public class PetriNet implements PetriNetInterface {
+public class PetriNet implements IPetriNet {
 
 	private List<Place> listOfPlaces;
 	private List<Edge> listOfEdges;

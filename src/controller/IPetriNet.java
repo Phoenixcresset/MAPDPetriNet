@@ -11,7 +11,7 @@ import elements.ZeroEdge;
 /**
  * Interface to define a PetriNet editing behaviour.
  */
-public interface PetriNetInterface {
+public interface IPetriNet {
 	public void addPlace(Place placeToAdd);
 
 	public void addInputEdge(InputEdge inputEdgeToAdd);
