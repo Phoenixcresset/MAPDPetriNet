@@ -22,6 +22,10 @@ public class Place {
 		this.linkedEdgesList = new LinkedList<Edge>();
 	}
 	
+	/**
+	 * Constructs a place with the specified number of tokens.
+	 * @param tokenNumber number of tokens of the new place
+	 */
 	public Place(int tokenNumber) {
 		this.tokensNumber = tokenNumber;
 		this.linkedEdgesList = new LinkedList<Edge>();
