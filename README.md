@@ -3,12 +3,13 @@
 README pour l'utilisation du PetriNet
 
 
-# Notes de conception
+# Notes en vrac
 
 - Quelle est la différence entre weight et value ? J'ai l'impression qu'ils sont confondus dans l'énoncé, à demander aux profs.
 - Est-ce qu'il nous faut garder tous les getters et setters ? Certains ne sont jamais utilisés et un peu obsolètes, normalement ils ne sont faits que quand on a besoin des valeurs dans une autre classe, à demander aussi.
 - Jusqu'à où on pousse pour les erreurs ? Ca a l'air difficile et surtout fastidieux de toutes les faire
-- Il faut faire des tests
+- Il faut faire des tests unitaires
+- Est-ce toujours pertinent de donner à une Place accès à ses Edges ? Puisqu'elle n'intervient jamais dessus directement
 
 
 # Grille d'Auto-évaluation
