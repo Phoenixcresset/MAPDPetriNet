@@ -12,7 +12,8 @@ import elements.ZeroEdge;
  * This class is used to run the project.
  *
  */
-public class main {
+@SuppressWarnings("unused")
+public class Main {
 	
 	/**
 	 * Main function.
