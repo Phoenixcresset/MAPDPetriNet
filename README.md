@@ -42,3 +42,7 @@ README pour l'utilisation du PetriNet
 - [x] Les classes importées sont nommées explicitement.
 - [x] Il n'y a pas de valeur utilisée sans être déclarée par une constante.
 - [x] Le code est factorisé.
+
+
+# Conception ayant changé :
+- La classe Edge a désormais accès à la Place et la Transition reliée, plutôt que les classes enfants InputEdge et OutputEdge
