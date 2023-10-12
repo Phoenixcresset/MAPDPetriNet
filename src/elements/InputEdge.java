@@ -16,6 +16,14 @@ public class InputEdge extends Edge {
 	public InputEdge(int weight, int value, Transition linkedTransition, Place linkedPlace) {
 		super(weight, value, linkedTransition, linkedPlace);
 	}
+	/**
+	 * Constructs an input edge with the given weight and value, unlinked from any Place or Transition.
+	 * @param weight the weight of this edge
+	 * @param value  the value of this edge
+	 */
+	public InputEdge(int weight, int value) {
+		super(weight, value);
+	}
 
 
 	// Methods

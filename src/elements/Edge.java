@@ -30,6 +30,15 @@ public class Edge {
 		this.linkedTransition = linkedTransition;
 		this.linkedPlace = linkedPlace;
 	}
+	/**
+	 * Constructs an edge with the given weight and value, unlinked from any Place or Transition.
+	 * @param weight the weight of this edge
+	 * @param value  the value of this edge
+	 */
+	public Edge(int weight, int value) {
+		this.weight = weight;
+		this.value = value;
+	}
 
 	// Setters and Getters
 

@@ -10,6 +10,9 @@ public class ZeroEdge extends InputEdge {
 	public ZeroEdge(int weight, int value, Transition linkedTransition, Place linkedPlace) {
 		super(weight, value, linkedTransition, linkedPlace);
 	}
+	public ZeroEdge(int weight, int value) {
+		super(weight, value);
+	}
 
 	// Methods
 	/**

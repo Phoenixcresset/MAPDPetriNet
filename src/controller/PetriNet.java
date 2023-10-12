@@ -131,7 +131,19 @@ public class PetriNet implements IPetriNet {
 
 	@Override
 	public void linkPlaceWithTransistion(Edge edgeToLink, Place placeToLink, Transition transitionToLink) {
-		// Pas sûr que ce soit très utile oui, je préfère le garder cependant, on ne sait jamais
+
+		if (edgeToLink instanceof InputEdge) {
+			transitionToLink.addInputEdgeToLinkedEdges((InputEdge) edgeToLink);
+		}
+		else if (edgeToLink instanceof OutputEdge) {
+			transitionToLink.addOutputEdgeToLinkedEdges((OutputEdge) edgeToLink);
+		}
+		else {
+			System.out.println("Tried to link an Edge that was not an InputEdge or an OutputEdge, the Edge class should not be used as an instance, linking cancelled.");
+		}
+		edgeToLink.setLinkedPlace(placeToLink);
+		edgeToLink.setLinkedTransition(transitionToLink);
+		placeToLink.addEdgeToLinkedEdges(edgeToLink);
 	}
 
 	@Override

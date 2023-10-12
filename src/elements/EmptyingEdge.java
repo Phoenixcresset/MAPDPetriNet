@@ -10,6 +10,9 @@ public class EmptyingEdge extends InputEdge {
 	public EmptyingEdge(int weight, int value, Transition linkedTransition, Place linkedPlace) {
 		super(weight, value, linkedTransition, linkedPlace);
 	}
+	public EmptyingEdge(int weight, int value) {
+		super(weight, value);
+	}
 
 	// Methods
 	/**
