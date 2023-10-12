@@ -27,7 +27,14 @@ public class Place {
 	 * @param tokenNumber number of tokens of the new place
 	 */
 	public Place(int tokenNumber) {
-		this.tokensNumber = tokenNumber;
+		// Handling negative tokens
+		if (tokenNumber < 0) {
+			System.out.println("Tried to construct a place with a negative token number, set to 0 instead.");
+			this.tokensNumber = 0;
+		}
+		else {
+			this.tokensNumber = tokenNumber;	
+		}
 		this.linkedEdgesList = new LinkedList<Edge>();
 	}
 
@@ -88,7 +95,15 @@ public class Place {
 	 * @param tokensToRemove how many tokens to remove
 	 */
 	public void removeTokens(int tokensToRemove) {
-		this.setTokensNumber(this.getTokensNumber() - tokensToRemove);
+		// Handling case if too many tokens were removed
+		if (tokensToRemove > this.getTokensNumber()) {
+			System.out.println("Tried to remove more tokens than the tokens inside a place, set to 0 instead");
+			this.setTokensNumber(0);
+		}
+		else {
+			this.setTokensNumber(this.getTokensNumber() - tokensToRemove);	
+		}
+		
 	}
 
 	/**
