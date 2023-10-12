@@ -60,7 +60,7 @@ public class PetriNet implements PetriNetInterface {
 			
 			// Il n'y aura pas un problème vu que l'edge est déjà supprimé de la place ? (donc il faudrait mettre la boucle entre les lignes 54 et 55
 			for (int j = 0; j < this.listOfTransitions.size(); ++j) {
-				this.listOfTransitions.get(j).removeInputEdgeFromInputEdges(placeToRemove.getLinkedEdgesList().get(i));
+				this.listOfTransitions.get(j).removeEdgeFromLinkedEdges(placeToRemove.getLinkedEdgesList().get(i));
 				j--;
 			}
 
@@ -106,7 +106,7 @@ public class PetriNet implements PetriNetInterface {
 			this.listOfEdges.remove(transitionToRemove.getLinkedOutputEdgesList().get(i));
 			
 			// Remove all Edges from the transition
-			transitionToRemove.removeInputEdgeFromInputEdges(transitionToRemove.getLinkedOutputEdgesList().get(i));
+			transitionToRemove.removeInputEdgeFromInputEdges(transitionToRemove.getLinkedInputEdgesList().get(i));
 			transitionToRemove.removeOutputEdgeFromOutputEdges(transitionToRemove.getLinkedOutputEdgesList().get(i));
 			i--;
 		}
