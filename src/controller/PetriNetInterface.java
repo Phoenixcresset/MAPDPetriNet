@@ -1,3 +1,13 @@
+package controller;
+
+import elements.Edge;
+import elements.EmptyingEdge;
+import elements.InputEdge;
+import elements.OutputEdge;
+import elements.Place;
+import elements.Transition;
+import elements.ZeroEdge;
+
 
 public interface PetriNetInterface {
 	public void addPlace(Place placeToAdd);

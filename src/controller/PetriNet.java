@@ -1,5 +1,17 @@
+package controller;
+
 import java.util.LinkedList;
 import java.util.List;
+
+import elements.Edge;
+import elements.EmptyingEdge;
+import elements.InputEdge;
+import elements.OutputEdge;
+import elements.Place;
+import elements.Transition;
+import elements.ZeroEdge;
+
+
 
 public class PetriNet implements PetriNetInterface {
 

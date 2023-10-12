@@ -1,5 +1,6 @@
+package elements;
 
-public class InputEdge extends Edge {
+public class OutputEdge extends Edge {
 
 	// Instance Variables
 	/** The transition linked to this edge */
@@ -9,13 +10,13 @@ public class InputEdge extends Edge {
 
 	// Constructor
 	/**
-	 * Constructs an edge with the specified weight and value, inputting to the specified transition from the specified place.
+	 * Constructs an edge with the specified weight and value, outputting from the specified transition to the specified place.
 	 * @param weight the weight of this edge
 	 * @param value the value of this edge
 	 * @param linkedTransition the transition linked to this edge
 	 * @param linkedPlace the place linked to this edge
 	 */
-	public InputEdge(int weight, int value, Transition linkedTransition, Place linkedPlace) {
+	public OutputEdge(int weight, int value, Transition linkedTransition, Place linkedPlace) {
 		super(weight, value);
 		this.linkedTransition = linkedTransition;
 		this.linkedPlace = linkedPlace;
@@ -57,20 +58,13 @@ public class InputEdge extends Edge {
 	}
 
 	// Methods
-
+	
 	/**
-	 * Called by a transition during a step to check if this edge's linked place has enough tokens for this edge to be triggered.
-	 * @return true if the place has enough tokens, false otherwise
-	 */
-	public boolean checkIfTriggerable() {
-		return linkedPlace.getTokensNumber() >= this.getWeight();
-	}
-
-	/**
-	 * Called by a linked Transition during a step to remove this edge's weight to the number of tokens of the linked place.
+	 * Called by a transition during a step to add this edge's weight to the number of tokens of the linked place.
 	 */
 	@Override
-	public void trigger() {
-		this.getLinkedPlace().removeTokens(this.getWeight());
+	public void trigger()
+	{
+		this.getLinkedPlace().addTokens(this.getWeight());
 	}
 }

@@ -1,3 +1,4 @@
+package elements;
 import java.util.LinkedList;
 
 public class Place {
