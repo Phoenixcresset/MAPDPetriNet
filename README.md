@@ -14,23 +14,23 @@ README pour l'utilisation du PetriNet
 # Grille d'Auto-évaluation
 
 ## Commentaires
-- [ ] Code écrit en anglais (nom de variables, méthodes, fonctions, classes, packages, etc.).
+- [x] Code écrit en anglais (nom de variables, méthodes, fonctions, classes, packages, etc.).
 - [ ] Commentaires écrits dans une seule langue (commentaires en français = pour dialoguer tous les deux et donc à supprimer à terme).
-- [ ] Les commentaires (javadoc) des méthodes publiques en permettent la réutilisation.
+- [x] Les commentaires (javadoc) des méthodes publiques en permettent la réutilisation.
 - [ ] Il y a dans le code des commentaires à destination des mainteneurs.
 
 ## Style et conventions
-- [ ] Les indentations sont homogènes (utiliser Eclipse pour auto formatter).
-- [ ] La forme des noms respecte le style du language (CamelCase pour les variables, CAPITALES pour les constantes).
-- [ ] L'ordre des déclarations est toujours le même (attributs, constructeurs, setters et getters, méthodes).
-- [ ] Les noms sont porteurs de sens (je coche, tu me dis si certains te déplaisent).
+- [x] Les indentations sont homogènes (utiliser Eclipse pour auto formatter).
+- [x] La forme des noms respecte le style du language (CamelCase pour les variables, CAPITALES pour les constantes).
+- [x] L'ordre des déclarations est toujours le même (attributs, constructeurs, setters et getters, méthodes).
+- [x] Les noms sont porteurs de sens (je coche, tu me dis si certains te déplaisent).
 
 ## Modularité
-- [ ] Le paquetage racine ne contient directement aucune classe.
-- [ ] Le fichier package.info décrit le contenu et la responsabilité de chaque paquetage.
-- [ ] Chaque classe a une responsabilité de calcul et ne se limite pas à stocker des données.
-- [ ] Il n'y a pas d'attribut public (encapsulation).
-- [ ] Les méthodes ne sont pas trop longues (ex : 15 lignes).
+- [x] Le paquetage racine ne contient directement aucune classe.
+- [x] Le fichier package.info décrit le contenu et la responsabilité de chaque paquetage.
+- [x] Chaque classe a une responsabilité de calcul et ne se limite pas à stocker des données.
+- [x] Il n'y a pas d'attribut public (encapsulation).
+- [x] Les méthodes ne sont pas trop longues (ex : 15 lignes).
 
 ## Sûreté
 - [ ] Les méthodes se protègent (tests des paramètres, levée d'exception).
@@ -38,6 +38,6 @@ README pour l'utilisation du PetriNet
 - [ ] Les tests sont automatisés et s'enchainent pour vérifier la non-régression.
 
 ## Évolutivité / Maintenance
-- [ ] Les classes importées sont nommées explicitement.
-- [ ] Il n'y a pas de valeur utilisée sans être déclarée par une constante.
-- [ ] Le code est factorisé.
+- [x] Les classes importées sont nommées explicitement.
+- [x] Il n'y a pas de valeur utilisée sans être déclarée par une constante.
+- [x] Le code est factorisé.
