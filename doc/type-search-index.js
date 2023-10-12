@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"<Unnamed>","l":"Edge"},{"p":"<Unnamed>","l":"EmptyingEdge"},{"p":"<Unnamed>","l":"InputEdge"},{"p":"<Unnamed>","l":"OutputEdge"},{"p":"<Unnamed>","l":"PetriNet"},{"p":"<Unnamed>","l":"PetriNetInterface"},{"p":"<Unnamed>","l":"Place"},{"p":"<Unnamed>","l":"Transition"},{"p":"<Unnamed>","l":"ZeroEdge"}]
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"controller","l":"PetriNet"}]

@@ -8,7 +8,9 @@ import elements.Place;
 import elements.Transition;
 import elements.ZeroEdge;
 
-
+/**
+ * Interface to define a PetriNet editing behaviour.
+ */
 public interface PetriNetInterface {
 	public void addPlace(Place placeToAdd);
 

@@ -12,7 +12,9 @@ import elements.Transition;
 import elements.ZeroEdge;
 
 
-
+/**
+ * Class used to create and edit a PetriNet.
+ */
 public class PetriNet implements PetriNetInterface {
 
 	private List<Place> listOfPlaces;

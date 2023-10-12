@@ -1,6 +1,9 @@
 package elements;
 import java.util.LinkedList;
 
+/**
+ * A base element which stores tokens.
+ */
 public class Place {
 
 	// Instance Variables

@@ -1,5 +1,8 @@
 package elements;
 
+/**
+ * An Edge meant to be linked from a Place to a Transition and remove tokens from the Place if it has enough.
+ */
 public class InputEdge extends Edge {
 
 	// Instance Variables

@@ -1,5 +1,8 @@
 package elements;
 
+/**
+ * A base element which links one Transition and one Place. Meant to be overriden for further behaviour.
+ */
 public class Edge {
 
 	// Instance Variables

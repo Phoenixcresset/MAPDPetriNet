@@ -1,5 +1,8 @@
 package elements;
 
+/**
+ * An InputEdge which can be triggered only if its Place is empty.
+ */
 public class ZeroEdge extends InputEdge {
 
 	// Constructor

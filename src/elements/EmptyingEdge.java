@@ -1,5 +1,8 @@
 package elements;
 
+/**
+ * An InputEdge which clears all of the tokens inside its Place if it has any.
+ */
 public class EmptyingEdge extends InputEdge {
 
 	// Constructor

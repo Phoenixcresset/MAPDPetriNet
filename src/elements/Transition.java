@@ -1,6 +1,9 @@
 package elements;
 import java.util.LinkedList;
 
+/**
+ * A base element which can be triggered to make a step.
+ */
 public class Transition {
 
 	// Instance Variables
