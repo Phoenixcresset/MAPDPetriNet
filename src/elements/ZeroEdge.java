@@ -31,5 +31,9 @@ public class ZeroEdge extends InputEdge {
 	public void trigger() {
 		return;
 	}
+	
+	public String toString() {
+		return "-0->";
+	}
 
 }

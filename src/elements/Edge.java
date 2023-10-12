@@ -121,5 +121,9 @@ public class Edge {
 	public void trigger() {
 		return;
 	}
+	
+	public String toString() {
+		return "-" + this.getWeight() + "->";
+	}
 
 }

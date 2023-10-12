@@ -21,10 +21,12 @@ public class Main {
 	public static void main(String[] args) {
 		PetriNet petriNet = new PetriNet();
 		Transition mainTransition = new Transition();
-		Place inputPlace = new Place(10);
+		Place inputPlace = new Place(7);
+		Place outputPlace2 = new Place(1);
 		Place outputPlace = new Place();
 		InputEdge inputEdge = new InputEdge(5, 5);
 		OutputEdge outputEdge = new OutputEdge(4, 4);
+		OutputEdge outputEdge2 = new OutputEdge(2, 2);
 		petriNet.addPlace(inputPlace);
 		petriNet.addPlace(outputPlace);
 		petriNet.addInputEdge(inputEdge);
@@ -32,11 +34,11 @@ public class Main {
 		petriNet.addTransition(mainTransition);
 		petriNet.linkPlaceWithTransistion(outputEdge, outputPlace, mainTransition);
 		petriNet.linkPlaceWithTransistion(inputEdge, inputPlace, mainTransition);
-		System.out.println(inputPlace.getTokensNumber());
-		System.out.println(outputPlace.getTokensNumber());
+		petriNet.linkPlaceWithTransistion(outputEdge2, outputPlace2, mainTransition);
+		System.out.println(petriNet.toString());
+		System.out.println("step\n");
 		mainTransition.step();
-		System.out.println(inputPlace.getTokensNumber());
-		System.out.println(outputPlace.getTokensNumber());
+		System.out.println(petriNet.toString());
 	}
 
 }

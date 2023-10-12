@@ -117,5 +117,9 @@ public class Transition {
 			linkedOutputEdgesList.get(i).trigger();
 		}
 	}
+	
+	public String toString() {
+		return "[ ]";
+	}
 
 }

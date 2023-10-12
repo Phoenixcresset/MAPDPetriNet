@@ -31,4 +31,8 @@ public class EmptyingEdge extends InputEdge {
 	public void trigger() {
 		this.getLinkedPlace().clearAllTokens();
 	}
+	
+	public String toString() {
+		return "-E->";
+	}
 }

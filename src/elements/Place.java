@@ -120,4 +120,8 @@ public class Place {
 	public void clearAllTokens() {
 		this.setTokensNumber(0);
 	}
+	
+	public String toString() {
+		return "( " + this.getTokensNumber() + " )";
+	}
 }

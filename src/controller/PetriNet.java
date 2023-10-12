@@ -148,20 +148,55 @@ public class PetriNet implements IPetriNet {
 
 	@Override
 	public String toString() {
-		String afficherPetriNet = "Places : \n";
-		for (int i = 0; i < this.listOfPlaces.size(); ++i) {
-			afficherPetriNet += "  - " + listOfPlaces.get(i).toString() + "\n";
+		String string = new String();
+		for (int i = 0; i < this.listOfTransitions.size(); i++)
+		{
+			Transition currentTransition = this.listOfTransitions.get(i);
+			int inputNumber = currentTransition.getLinkedInputEdgesList().size();
+			int outputNumber = currentTransition.getLinkedOutputEdgesList().size();
+			int maxNumber = Math.max(inputNumber, outputNumber);
+			for (int j = 0; j < maxNumber; j++) {
+				
+				// Input
+				if (j < inputNumber) {
+					string += currentTransition.getLinkedInputEdgesList().get(j).getLinkedPlace().toString();
+					string += " ";
+					string += currentTransition.getLinkedInputEdgesList().get(j).toString();
+					
+				}
+				else {
+					string += "     ";
+					string += " ";
+					string += "    ";
+				}
+				
+				string += " ";
+				
+				// Transition
+				if (j == 0) {
+					string += "[" + i + "]";
+				}
+				else {
+					string += "   ";
+				}
+				
+				string += " ";
+				
+				// Output
+				if (j < outputNumber) {
+					string += currentTransition.getLinkedOutputEdgesList().get(j).toString();
+					string += " ";
+					string += currentTransition.getLinkedOutputEdgesList().get(j).getLinkedPlace().toString();
+				}
+				else {
+					string += "    ";
+					string += " ";
+					string += "     ";
+				}
+				string += "\n";
+			}
 		}
-		afficherPetriNet += "\nEdges : \n";
-		for (int i = 0; i < this.listOfEdges.size(); ++i) {
-			afficherPetriNet += "  - " + listOfEdges.get(i).toString() + "\n";
-		}
-		afficherPetriNet += "\nTransistions : \n";
-		for (int i = 0; i < this.listOfTransitions.size(); ++i) {
-			afficherPetriNet += "  - " + listOfTransitions.get(i).toString() + "\n";
-		}
-
-		return "Notre réseau de PetriNet est composé de : \n" + afficherPetriNet;
+		return string;
 	}
 
 }
