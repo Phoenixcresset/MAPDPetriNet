@@ -148,21 +148,20 @@ public class PetriNet implements IPetriNet {
 
 	@Override
 	public String toString() {
-		String afficherPetriNet = "places : ";
-
+		String afficherPetriNet = "Places : \n";
 		for (int i = 0; i < this.listOfPlaces.size(); ++i) {
-			afficherPetriNet += listOfPlaces.toString();
+			afficherPetriNet += "  - " + listOfPlaces.get(i).toString() + "\n";
 		}
-		afficherPetriNet += " avec comme Edges : ";
+		afficherPetriNet += "\nEdges : \n";
 		for (int i = 0; i < this.listOfEdges.size(); ++i) {
-			afficherPetriNet += listOfEdges.toString();
+			afficherPetriNet += "  - " + listOfEdges.get(i).toString() + "\n";
 		}
-		afficherPetriNet += " avec comme Transistions : ";
+		afficherPetriNet += "\nTransistions : \n";
 		for (int i = 0; i < this.listOfTransitions.size(); ++i) {
-			afficherPetriNet += listOfTransitions.toString();
+			afficherPetriNet += "  - " + listOfTransitions.get(i).toString() + "\n";
 		}
 
-		return "Notre réseau de PetriNet est composé de " + afficherPetriNet;
+		return "Notre réseau de PetriNet est composé de : \n" + afficherPetriNet;
 	}
 
 }

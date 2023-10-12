@@ -120,16 +120,4 @@ public class Place {
 	public void clearAllTokens() {
 		this.setTokensNumber(0);
 	}
-	
-	public String toString() {
-		String string = new String();
-		string += "Place containing " + this.getTokensNumber() + " tokens.\n";
-		string += "Linked to : \n";
-		LinkedList<Edge> linkedEdgesList = new LinkedList<Edge>(this.getLinkedEdgesList());
-		for (int i = 0; i < linkedEdgesList.size(); i++)
-		{
-			string += "  - " + linkedEdgesList.get(i).toString() + "\n";
-		}
-		return string;
-	}
 }
