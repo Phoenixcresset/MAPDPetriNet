@@ -130,11 +130,11 @@ public class PetriNet implements IPetriNet {
 	}
 
 	@Override
-	public void linkPlaceWithTransistion(Place p, Transition t, Edge e) {
-		// TODO Auto-generated method stub
-		// pour le moment je n'ai pas l'impression que ce soit necessaire ...
+	public void linkPlaceWithTransistion(Edge edgeToLink, Place placeToLink, Transition transitionToLink) {
+		// Pas sûr que ce soit très utile oui, je préfère le garder cependant, on ne sait jamais
 	}
 
+	@Override
 	public String toString() {
 		String afficherPetriNet = "places : ";
 

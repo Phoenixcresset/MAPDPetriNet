@@ -36,5 +36,5 @@ public interface IPetriNet {
 
 	public void removeTransition(Transition transitionToRemove);
 	
-	public void linkPlaceWithTransistion(Place p, Transition t, Edge e);
+	public void linkPlaceWithTransistion(Edge edgeToLink, Place placeToLink, Transition transitionToLink);
 }
