@@ -1,5 +1,17 @@
+package controller;
 
-public interface PetriNetInterface {
+import elements.Edge;
+import elements.EmptyingEdge;
+import elements.InputEdge;
+import elements.OutputEdge;
+import elements.Place;
+import elements.Transition;
+import elements.ZeroEdge;
+
+/**
+ * Interface to define a PetriNet editing behaviour.
+ */
+public interface IPetriNet {
 	public void addPlace(Place placeToAdd);
 
 	public void addInputEdge(InputEdge inputEdgeToAdd);
@@ -23,4 +35,6 @@ public interface PetriNetInterface {
 	public void removeZeroEdge(ZeroEdge zeroEdgeToRemove);
 
 	public void removeTransition(Transition transitionToRemove);
+	
+	public void linkPlaceWithTransistion(Edge edgeToLink, Place placeToLink, Transition transitionToLink);
 }
