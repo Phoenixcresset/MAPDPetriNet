@@ -6,12 +6,12 @@ package elements;
 public class ZeroEdge extends InputEdge {
 
 	// Constructor
-	// Peut-être pas lui donner de weight ou de value
-	public ZeroEdge(int weight, int value, Transition linkedTransition, Place linkedPlace) {
-		super(weight, value, linkedTransition, linkedPlace);
+	public ZeroEdge(int weight, Transition linkedTransition, Place linkedPlace) {
+		super(0, linkedTransition, linkedPlace);
 	}
-	public ZeroEdge(int weight, int value) {
-		super(weight, value);
+	
+	public ZeroEdge() {
+		super(0);
 	}
 
 	// Methods

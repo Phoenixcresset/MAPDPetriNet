@@ -62,24 +62,17 @@ public class PetriNet implements IPetriNet {
 
 	@Override
 	public void removePlace(Place placeToRemove) {
-		// on doit supprimer les edges reliés à la place (donc j'ai rajouté un getter)
 		// We delete every edge linked to the place to be removed
 		for (int i = 0; i < placeToRemove.getLinkedEdgesList().size(); ++i) {
 			this.listOfEdges.remove(placeToRemove.getLinkedEdgesList().get(i)); // Remove the edge from the PetriNet
-			placeToRemove.removeEdgeFromLinkedEdges(placeToRemove.getLinkedEdgesList().get(i)); // Remove the edge from the Place
-
-			// on doit supprimer les même edges reliés à la transistion
-			// (je pars du postulat pas très opti de regarder toutes les transistions
-			// et regarder si dans une transistion on a l'Edge associé)
-			
-			// Il n'y aura pas un problème vu que l'edge est déjà supprimé de la place ? (donc il faudrait mettre la boucle entre les lignes 54 et 55
+			// Remove the edge from its linked Transition
 			for (int j = 0; j < this.listOfTransitions.size(); ++j) {
 				this.listOfTransitions.get(j).removeEdgeFromLinkedEdges(placeToRemove.getLinkedEdgesList().get(i));
 				j--;
+			placeToRemove.removeEdgeFromLinkedEdges(placeToRemove.getLinkedEdgesList().get(i)); // Remove the edge from the Place
 			}
 
-			// Décrémenter l'indice pour éviter de sauter un élément
-			// C'est à dire ?
+			// Decrement since the edge at this index was removed
 			i--;
 		}
 
@@ -111,16 +104,19 @@ public class PetriNet implements IPetriNet {
 	@Override
 	public void removeTransition(Transition transitionToRemove) {
 
-		// Remove every edge linked to the transition (but not the places)
+		// Remove every InputEdge linked to the transition (but not from their places)
 		for (int i = 0; i < transitionToRemove.getLinkedInputEdgesList().size(); ++i) {
-			// Remove all Input Edges from the PetriNet
+			// Remove  the current InputEdge from the PetriNet
 			this.listOfEdges.remove(transitionToRemove.getLinkedInputEdgesList().get(i));
-			// Remove all Output Edges from the PetriNet
-			// Heu, problème si les deux listes ne font pas la même taille nn ?
-			this.listOfEdges.remove(transitionToRemove.getLinkedOutputEdgesList().get(i));
-			
-			// Remove all Edges from the transition
+			// Remove the current InputEdge from the Transition
 			transitionToRemove.removeInputEdgeFromInputEdges(transitionToRemove.getLinkedInputEdgesList().get(i));
+			i--;
+		}
+		// Remove every OutputEdge linked to the Transition (but not from their places)
+		for (int i = 0; i < transitionToRemove.getLinkedOutputEdgesList().size(); ++i) {
+			// Remove the current OutputEdge from the PetriNet
+			this.listOfEdges.remove(transitionToRemove.getLinkedOutputEdgesList().get(i));
+			// Remove the current OutputEdge from the Transition
 			transitionToRemove.removeOutputEdgeFromOutputEdges(transitionToRemove.getLinkedOutputEdgesList().get(i));
 			i--;
 		}
