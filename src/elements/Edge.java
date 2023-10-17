@@ -54,9 +54,6 @@ public class Edge {
 		this.weight = weight;
 	}
 
-	
-	// Peut-être appeler les méthodes des places et transitions pour ajouter cet edge à leur liste dans les setters ? jsp
-
 	/**
 	 * Returns the transition linked to this edge.
 	 * @return the transition linked to this edge.
