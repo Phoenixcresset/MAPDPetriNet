@@ -78,8 +78,7 @@ public class PetriNet implements IPetriNet {
 				j--;
 			}
 
-			// Décrémenter l'indice pour éviter de sauter un élément
-			// C'est à dire ?
+			// Decrement since the edge at this index was removed
 			i--;
 		}
 
