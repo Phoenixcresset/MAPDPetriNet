@@ -19,7 +19,6 @@ public class OutputEdge extends Edge {
 	/**
 	 * Constructs an output edge with the given weight and value, unlinked from any Place or Transition.
 	 * @param weight the weight of this edge
-	 * @param value  the value of this edge
 	 */
 	public OutputEdge(int weight) {
 		super(weight);

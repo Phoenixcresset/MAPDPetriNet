@@ -16,7 +16,8 @@ import elements.ZeroEdge;
 public class Main {
 	
 	/**
-	 * Main function.
+	 * Main function
+	 * @param args list of arguments
 	 */
 	public static void main(String[] args) {
 		PetriNet petriNet = new PetriNet();
