@@ -47,3 +47,4 @@ README pour l'utilisation du PetriNet
 
 # Conception ayant changé :
 - La classe Edge a désormais accès à la Place et la Transition reliée, plutôt que les classes enfants InputEdge et OutputEdge
+- Suppression de value
