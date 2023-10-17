@@ -24,9 +24,9 @@ public class Main {
 		Place inputPlace = new Place(7);
 		Place outputPlace2 = new Place(1);
 		Place outputPlace = new Place();
-		InputEdge inputEdge = new InputEdge(5, 5);
-		OutputEdge outputEdge = new OutputEdge(4, 4);
-		OutputEdge outputEdge2 = new OutputEdge(2, 2);
+		InputEdge inputEdge = new InputEdge(5);
+		OutputEdge outputEdge = new OutputEdge(4);
+		OutputEdge outputEdge2 = new OutputEdge(2);
 		petriNet.addPlace(inputPlace);
 		petriNet.addPlace(outputPlace);
 		petriNet.addInputEdge(inputEdge);

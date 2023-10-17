@@ -9,12 +9,11 @@ public class OutputEdge extends Edge {
 	/**
 	 * Constructs an edge with the specified weight and value, outputting from the specified transition to the specified place.
 	 * @param weight the weight of this edge
-	 * @param value the value of this edge
 	 * @param linkedTransition the transition linked to this edge
 	 * @param linkedPlace the place linked to this edge
 	 */
-	public OutputEdge(int weight, int value, Transition linkedTransition, Place linkedPlace) {
-		super(weight, value, linkedTransition, linkedPlace);
+	public OutputEdge(int weight, Transition linkedTransition, Place linkedPlace) {
+		super(weight, linkedTransition, linkedPlace);
 	}
 	
 	/**
@@ -22,8 +21,8 @@ public class OutputEdge extends Edge {
 	 * @param weight the weight of this edge
 	 * @param value  the value of this edge
 	 */
-	public OutputEdge(int weight, int value) {
-		super(weight, value);
+	public OutputEdge(int weight) {
+		super(weight);
 	}
 
 

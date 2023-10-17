@@ -7,11 +7,11 @@ public class EmptyingEdge extends InputEdge {
 
 	// Constructor
 	// Peut-être pas lui donner de weight ou de value
-	public EmptyingEdge(int weight, int value, Transition linkedTransition, Place linkedPlace) {
-		super(weight, value, linkedTransition, linkedPlace);
+	public EmptyingEdge(int weight, Transition linkedTransition, Place linkedPlace) {
+		super(weight, linkedTransition, linkedPlace);
 	}
-	public EmptyingEdge(int weight, int value) {
-		super(weight, value);
+	public EmptyingEdge(int weight) {
+		super(weight);
 	}
 
 	// Methods
