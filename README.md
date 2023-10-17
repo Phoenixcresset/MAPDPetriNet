@@ -18,9 +18,9 @@ README pour l'utilisation du PetriNet
 
 ## Commentaires
 - [x] Code écrit en anglais (nom de variables, méthodes, fonctions, classes, packages, etc.).
-- [ ] Commentaires écrits dans une seule langue (commentaires en français = pour dialoguer tous les deux et donc à supprimer à terme).
+- [x] Commentaires écrits dans une seule langue (commentaires en français = pour dialoguer tous les deux et donc à supprimer à terme).
 - [x] Les commentaires (javadoc) des méthodes publiques en permettent la réutilisation.
-- [ ] Il y a dans le code des commentaires à destination des mainteneurs.
+- [x] Il y a dans le code des commentaires à destination des mainteneurs.
 
 ## Style et conventions
 - [x] Les indentations sont homogènes (utiliser Eclipse pour auto formatter).
