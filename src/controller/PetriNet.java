@@ -66,16 +66,11 @@ public class PetriNet implements IPetriNet {
 		// We delete every edge linked to the place to be removed
 		for (int i = 0; i < placeToRemove.getLinkedEdgesList().size(); ++i) {
 			this.listOfEdges.remove(placeToRemove.getLinkedEdgesList().get(i)); // Remove the edge from the PetriNet
-			placeToRemove.removeEdgeFromLinkedEdges(placeToRemove.getLinkedEdgesList().get(i)); // Remove the edge from the Place
-
-			// on doit supprimer les même edges reliés à la transistion
-			// (je pars du postulat pas très opti de regarder toutes les transistions
-			// et regarder si dans une transistion on a l'Edge associé)
-			
-			// Il n'y aura pas un problème vu que l'edge est déjà supprimé de la place ? (donc il faudrait mettre la boucle entre les lignes 54 et 55
+			// Remove the edge from its linked Transition
 			for (int j = 0; j < this.listOfTransitions.size(); ++j) {
 				this.listOfTransitions.get(j).removeEdgeFromLinkedEdges(placeToRemove.getLinkedEdgesList().get(i));
 				j--;
+			placeToRemove.removeEdgeFromLinkedEdges(placeToRemove.getLinkedEdgesList().get(i)); // Remove the edge from the Place
 			}
 
 			// Decrement since the edge at this index was removed
