@@ -102,6 +102,15 @@ public class Edge {
 		return "-" + this.getWeight() + "->";
 	}
 	
-	
+	@Override
+	public boolean equals(Object objectToCompare) {
+		if (objectToCompare instanceof Edge == false)
+		{
+			return false;
+		}
+		return ((((Edge) objectToCompare).getWeight() == this.getWeight())
+				&& (((Edge) objectToCompare).getLinkedTransition() == this.getLinkedTransition())
+				&& (((Edge) objectToCompare).getLinkedPlace() == this.getLinkedPlace()));
+	}
 
 }

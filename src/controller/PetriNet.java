@@ -141,14 +141,10 @@ public class PetriNet implements IPetriNet {
 	public void linkPlaceWithTransistion(Edge edgeToLink, Place placeToLink, Transition transitionToLink) {
 
 		LinkedList<Edge> linkedEdges = transitionToLink.getLinkedEdgesList();
-		if (linkedEdges.contains(edgeToLink)) 
+		Edge similarEdge = new Edge(edgeToLink.getWeight(), transitionToLink, placeToLink);
+		if (linkedEdges.contains(similarEdge)) 
 		{
-			int similarEdgeIndex = linkedEdges.indexOf(edgeToLink);
-			Edge similarEdge = linkedEdges.get(similarEdgeIndex);
-			if (similarEdge.getLinkedPlace() == placeToLink)
-			{
-				return;
-			}
+			return;
 		}
 		if (edgeToLink instanceof InputEdge) {
 			transitionToLink.addInputEdgeToLinkedEdges((InputEdge) edgeToLink);
