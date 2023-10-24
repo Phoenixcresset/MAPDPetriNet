@@ -1,12 +1,12 @@
 package tests;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import org.junit.jupiter.api.Test;
-
 import elements.Edge;
 import elements.Place;
 import elements.Transition;
+
+import static org.junit.Assert.*;
+
+import org.junit.jupiter.api.Test;
 
 class EdgeTest {
 

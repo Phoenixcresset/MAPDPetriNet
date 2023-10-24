@@ -27,6 +27,18 @@ public class PetriNet implements IPetriNet {
 		listOfTransitions = new LinkedList<>();
 	}
 
+	public List<Place> getListOfPlaces() {
+		return listOfPlaces;
+	}
+
+	public List<Edge> getListOfEdges() {
+		return listOfEdges;
+	}
+
+	public List<Transition> getListOfTransitions() {
+		return listOfTransitions;
+	}
+
 	@Override
 	public void addPlace(Place placeToAdd) {
 		this.listOfPlaces.add(placeToAdd);
