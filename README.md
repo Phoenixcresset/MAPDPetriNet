@@ -7,6 +7,7 @@ README pour l'utilisation du PetriNet
 
 - Jusqu'à où on pousse pour les erreurs ? Ca a l'air difficile et surtout fastidieux de toutes les faire (Le prof a dit qu'il n'en mettait pas, peut-être en mettre une ou deux pour montrer qu'on sait les utiliser)
 - Il faut faire des tests unitaires
+- Penser aux fonctions abstract pour la classe Edge
 
 ## A voir avec l'interface :
 - J'ai l'impression que ça ne sert pas à grand chose d'ajouter des éléments dans le PétriNet... Peut-être que l'extension d'interface va en profiter
