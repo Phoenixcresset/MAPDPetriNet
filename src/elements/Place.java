@@ -100,6 +100,9 @@ public class Place {
 			System.out.println("Tried to remove more tokens than the tokens inside a place, set to 0 instead");
 			this.setTokensNumber(0);
 		}
+		else if (tokensToRemove < 0) {
+			return;
+		}
 		else {
 			this.setTokensNumber(this.getTokensNumber() - tokensToRemove);	
 		}

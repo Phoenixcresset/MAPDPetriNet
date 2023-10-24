@@ -1,5 +1,7 @@
 package elements;
 
+import static java.lang.Math.abs;
+
 /**
  * A base element which links one Transition and one Place. Meant to be overriden for further behaviour.
  */
@@ -22,7 +24,7 @@ public class Edge {
 	 * @param linkedPlace the place linked to this edge
 	 */
 	public Edge(int weight, Transition linkedTransition, Place linkedPlace) {
-		this.weight = weight;
+        this.weight = abs(weight);
 		this.linkedTransition = linkedTransition;
 		this.linkedPlace = linkedPlace;
 	}
@@ -31,7 +33,7 @@ public class Edge {
 	 * @param weight the weight of this edge
 	 */
 	public Edge(int weight) {
-		this.weight = weight;
+		this.weight = abs(weight);
 	}
 
 	// Setters and Getters
@@ -51,7 +53,7 @@ public class Edge {
 	 * @param weight the new weight of this edge
 	 */
 	public void setWeight(int weight) {
-		this.weight = weight;
+		this.weight = abs(weight);
 	}
 
 	/**
