@@ -1,4 +1,4 @@
-package tests;
+package elements;
 
 import elements.Edge;
 import elements.Place;
