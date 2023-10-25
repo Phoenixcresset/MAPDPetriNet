@@ -124,7 +124,11 @@ public class Place {
 		this.setTokensNumber(0);
 	}
 	
+	@Override
 	public String toString() {
 		return "( " + this.getTokensNumber() + " )";
 	}
+	
+
+	
 }

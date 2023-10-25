@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import elements.InputEdge;
+import elements.OutputEdge;
 import elements.Place;
 import elements.Transition;
 import controller.PetriNet;
@@ -29,7 +30,19 @@ class PetriNetTest {
 	
 	@Test
 	void testLinkPlaceWithTransistion() {
-		
+		final PetriNet petriNet = new PetriNet();
+		final Transition transition = new Transition();
+		final Place place = new Place();
+		final int edgeWeight = 5;
+		final OutputEdge edge = new OutputEdge(edgeWeight);
+		petriNet.addPlace(place);
+		petriNet.addTransition(transition);
+		petriNet.addOutputEdge(edge);
+		petriNet.linkPlaceWithTransistion(edge, place, transition);
+		assertEquals(place.getLinkedEdgesList().get(0), edge);
+		assertEquals(transition.getLinkedEdgesList().get(0), edge);
+		assertEquals(edge.getLinkedPlace(), place);
+		assertEquals(edge.getLinkedTransition(), transition);
 	}
 	
 	@Test
