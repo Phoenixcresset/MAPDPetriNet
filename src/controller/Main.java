@@ -1,5 +1,6 @@
 package controller;
 
+
 import elements.Edge;
 import elements.EmptyingEdge;
 import elements.InputEdge;
@@ -12,6 +13,8 @@ import elements.ZeroEdge;
  * This class is used to run the project.
  *
  */
+
+
 @SuppressWarnings("unused")
 public class Main {
 	

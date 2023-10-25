@@ -29,7 +29,6 @@ public class Place {
 	public Place(int tokenNumber) {
 		// Handling negative tokens
 		if (tokenNumber < 0) {
-			System.out.println("Tried to construct a place with a negative token number, set to 0 instead.");
 			this.tokensNumber = 0;
 		}
 		else {
@@ -53,6 +52,10 @@ public class Place {
 	 * @param tokenNumber the new number of tokens of this place
 	 */
 	public void setTokensNumber(int tokenNumber) {
+		if (tokenNumber < 0)
+		{
+			tokenNumber = 0;
+		}
 		this.tokensNumber = tokenNumber;
 	}
 
@@ -97,7 +100,6 @@ public class Place {
 	public void removeTokens(int tokensToRemove) {
 		// Handling case if too many tokens were removed
 		if (tokensToRemove > this.getTokensNumber()) {
-			System.out.println("Tried to remove more tokens than the tokens inside a place, set to 0 instead");
 			this.setTokensNumber(0);
 		}
 		else if (tokensToRemove < 0) {
@@ -113,7 +115,7 @@ public class Place {
 	 * This method is used by EmptyingEdges and ZeroEdges to check if this place is empty or not.
 	 * @return true if no tokens are in this place, false otherwise
 	 */
-	public boolean checkIfTempty() {
+	public boolean checkIfEmpty() {
 		return this.getTokensNumber() == 0;
 	}
 
