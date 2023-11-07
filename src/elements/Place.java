@@ -90,6 +90,9 @@ public class Place {
 	 * @param tokensToAdd how many tokens to add
 	 */
 	public void addTokens(int tokensToAdd) {
+		if (tokensToAdd < 0) {
+			return;
+		}
 		this.setTokensNumber(this.getTokensNumber() + tokensToAdd);
 	}
 

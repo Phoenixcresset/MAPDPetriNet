@@ -7,7 +7,7 @@ public class OutputEdge extends Edge {
 
 	// Constructor
 	/**
-	 * Constructs an edge with the specified weight and value, outputting from the specified transition to the specified place.
+	 * Constructs an edge with the specified weight, outputting from the specified transition to the specified place.
 	 * @param weight the weight of this edge
 	 * @param linkedTransition the transition linked to this edge
 	 * @param linkedPlace the place linked to this edge
@@ -17,13 +17,19 @@ public class OutputEdge extends Edge {
 	}
 	
 	/**
-	 * Constructs an output edge with the given weight and value, unlinked from any Place or Transition.
+	 * Constructs an output edge with the given weight, unlinked from any Place or Transition.
 	 * @param weight the weight of this edge
 	 */
 	public OutputEdge(int weight) {
 		super(weight);
 	}
 
+	/**
+	 * Constructs an output edge with a default weight of 1, unlinked from any Place or Transition.
+	 */
+	public OutputEdge() {
+		super();
+	}
 
 	// Methods
 	

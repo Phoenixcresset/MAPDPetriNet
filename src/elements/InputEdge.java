@@ -22,6 +22,14 @@ public class InputEdge extends Edge {
 	public InputEdge(int weight) {
 		super(weight);
 	}
+	
+	/**
+	 * Constructs an input edge with a default weight of 1, unlinked from any Place or Transition.
+	 */
+	public InputEdge() {
+		super();
+	}
+	
 
 
 	// Methods

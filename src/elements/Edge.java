@@ -35,6 +35,13 @@ public class Edge {
 	public Edge(int weight) {
 		this.weight = abs(weight);
 	}
+	
+	/**
+	 * Constructs an edge with a default weight of one, unlinked from any Place or Transition.
+	 */
+	public Edge() {
+		this.weight = 1;
+	}
 
 	// Setters and Getters
 
