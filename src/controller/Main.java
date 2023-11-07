@@ -18,9 +18,10 @@ import elements.ZeroEdge;
 
 @Disabled
 public class Main {
-	
+
 	/**
 	 * Main function
+	 * 
 	 * @param args list of arguments
 	 */
 	public static void main(String[] args) {

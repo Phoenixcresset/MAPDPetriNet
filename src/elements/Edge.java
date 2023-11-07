@@ -3,7 +3,8 @@ package elements;
 import static java.lang.Math.abs;
 
 /**
- * A base element which links one Transition and one Place. Meant to be overriden for further behaviour.
+ * A base element which links one Transition and one Place. Meant to be
+ * overriden for further behaviour.
  */
 public class Edge {
 
@@ -17,27 +18,32 @@ public class Edge {
 
 	// Constructor
 	/**
-	 * Contructs an edge with the given weight, linking the specified Place and Transition.
+	 * Contructs an edge with the given weight, linking the specified Place and
+	 * Transition.
 	 * 
-	 * @param weight the weight of this edge
+	 * @param weight           the weight of this edge
 	 * @param linkedTransition the transition linked to this edge
-	 * @param linkedPlace the place linked to this edge
+	 * @param linkedPlace      the place linked to this edge
 	 */
 	public Edge(int weight, Transition linkedTransition, Place linkedPlace) {
-        this.weight = abs(weight);
+		this.weight = abs(weight);
 		this.linkedTransition = linkedTransition;
 		this.linkedPlace = linkedPlace;
 	}
+
 	/**
-	 * Constructs an edge with the given weight, unlinked from any Place or Transition.
+	 * Constructs an edge with the given weight, unlinked from any Place or
+	 * Transition.
+	 * 
 	 * @param weight the weight of this edge
 	 */
 	public Edge(int weight) {
 		this.weight = abs(weight);
 	}
-	
+
 	/**
-	 * Constructs an edge with a default weight of one, unlinked from any Place or Transition.
+	 * Constructs an edge with a default weight of one, unlinked from any Place or
+	 * Transition.
 	 */
 	public Edge() {
 		this.weight = 1;
@@ -65,6 +71,7 @@ public class Edge {
 
 	/**
 	 * Returns the transition linked to this edge.
+	 * 
 	 * @return the transition linked to this edge.
 	 */
 	public Transition getLinkedTransition() {
@@ -73,6 +80,7 @@ public class Edge {
 
 	/**
 	 * Replaces the transition linked to this edge by the specified transition.
+	 * 
 	 * @param linkedTransition the new transition to connect to
 	 */
 	public void setLinkedTransition(Transition linkedTransition) {
@@ -81,6 +89,7 @@ public class Edge {
 
 	/**
 	 * Returns the place linked to this edge.
+	 * 
 	 * @return the place linked to this edge
 	 */
 	public Place getLinkedPlace() {
@@ -89,6 +98,7 @@ public class Edge {
 
 	/**
 	 * Replaces the place linked to this edge by the specified place.
+	 * 
 	 * @param linkedPlace the new place to connect to
 	 */
 	public void setLinkedPlace(Place linkedPlace) {
@@ -104,15 +114,14 @@ public class Edge {
 	public void trigger() {
 		return;
 	}
-	
+
 	public String toString() {
 		return "-" + this.getWeight() + "->";
 	}
-	
+
 	@Override
 	public boolean equals(Object objectToCompare) {
-		if (objectToCompare instanceof Edge == false)
-		{
+		if (objectToCompare instanceof Edge == false) {
 			return false;
 		}
 		return ((((Edge) objectToCompare).getWeight() == this.getWeight())

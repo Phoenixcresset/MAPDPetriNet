@@ -11,7 +11,6 @@ import elements.Place;
 import elements.Transition;
 import elements.ZeroEdge;
 
-
 /**
  * Class used to create and edit a PetriNet.
  */
@@ -75,16 +74,17 @@ public class PetriNet implements IPetriNet {
 	@Override
 	public void removePlace(Place placeToRemove) {
 		// We delete every edge linked to the place
-        for (int i = 0; i < placeToRemove.getLinkedEdgesList().size(); ++i) {
-            // Remove the current Edge from the PetriNet
-            this.listOfEdges.remove(placeToRemove.getLinkedEdgesList().get(i));
-            // Remove the current Edge from its linked Transition
-            placeToRemove.getLinkedEdgesList().get(i).getLinkedTransition().removeEdgeFromLinkedEdges(placeToRemove.getLinkedEdgesList().get(i));
-            
-            // Remove the current Edge from the placeToRemove
-            placeToRemove.removeEdgeFromLinkedEdges(placeToRemove.getLinkedEdgesList().get(i));
-            i--;
-        }
+		for (int i = 0; i < placeToRemove.getLinkedEdgesList().size(); ++i) {
+			// Remove the current Edge from the PetriNet
+			this.listOfEdges.remove(placeToRemove.getLinkedEdgesList().get(i));
+			// Remove the current Edge from its linked Transition
+			placeToRemove.getLinkedEdgesList().get(i).getLinkedTransition()
+					.removeEdgeFromLinkedEdges(placeToRemove.getLinkedEdgesList().get(i));
+
+			// Remove the current Edge from the placeToRemove
+			placeToRemove.removeEdgeFromLinkedEdges(placeToRemove.getLinkedEdgesList().get(i));
+			i--;
+		}
 
 		// Delete the place from the PetriNet
 		this.listOfPlaces.remove(placeToRemove);
@@ -114,24 +114,26 @@ public class PetriNet implements IPetriNet {
 	public void removeTransition(Transition transitionToRemove) {
 
 		// Remove every InputEdge linked to the transition
-        for (int i = 0; i < transitionToRemove.getLinkedInputEdgesList().size(); ++i) {
-            // Remove the current Edge from the PetriNet
-            this.listOfEdges.remove(transitionToRemove.getLinkedInputEdgesList().get(i));
-            // Remove the current Edge from its linked Place
-            transitionToRemove.getLinkedInputEdgesList().get(i).getLinkedPlace().removeEdgeFromLinkedEdges(transitionToRemove.getLinkedInputEdgesList().get(i));
-            // Remove the current Edge from the transitionToRemove
-            transitionToRemove.removeEdgeFromLinkedEdges(transitionToRemove.getLinkedInputEdgesList().get(i));
-            i--;
+		for (int i = 0; i < transitionToRemove.getLinkedInputEdgesList().size(); ++i) {
+			// Remove the current Edge from the PetriNet
+			this.listOfEdges.remove(transitionToRemove.getLinkedInputEdgesList().get(i));
+			// Remove the current Edge from its linked Place
+			transitionToRemove.getLinkedInputEdgesList().get(i).getLinkedPlace()
+					.removeEdgeFromLinkedEdges(transitionToRemove.getLinkedInputEdgesList().get(i));
+			// Remove the current Edge from the transitionToRemove
+			transitionToRemove.removeEdgeFromLinkedEdges(transitionToRemove.getLinkedInputEdgesList().get(i));
+			i--;
 		}
 		// Remove every OutputEdge linked to the Transition
 		for (int i = 0; i < transitionToRemove.getLinkedOutputEdgesList().size(); ++i) {
-            // Remove the current Edge from the PetriNet
-            this.listOfEdges.remove(transitionToRemove.getLinkedOutputEdgesList().get(i));
-            // Remove the current Edge from its linked Place
-            transitionToRemove.getLinkedOutputEdgesList().get(i).getLinkedPlace().removeEdgeFromLinkedEdges(transitionToRemove.getLinkedOutputEdgesList().get(i));
-            // Remove the current Edge from the transitionToRemove
-            transitionToRemove.removeEdgeFromLinkedEdges(transitionToRemove.getLinkedOutputEdgesList().get(i));
-            i--;
+			// Remove the current Edge from the PetriNet
+			this.listOfEdges.remove(transitionToRemove.getLinkedOutputEdgesList().get(i));
+			// Remove the current Edge from its linked Place
+			transitionToRemove.getLinkedOutputEdgesList().get(i).getLinkedPlace()
+					.removeEdgeFromLinkedEdges(transitionToRemove.getLinkedOutputEdgesList().get(i));
+			// Remove the current Edge from the transitionToRemove
+			transitionToRemove.removeEdgeFromLinkedEdges(transitionToRemove.getLinkedOutputEdgesList().get(i));
+			i--;
 		}
 		// Remove the Transition from the PetriNet
 		this.listOfTransitions.remove(transitionToRemove);
@@ -142,17 +144,14 @@ public class PetriNet implements IPetriNet {
 
 		LinkedList<Edge> linkedEdges = transitionToLink.getLinkedEdgesList();
 		Edge similarEdge = new Edge(edgeToLink.getWeight(), transitionToLink, placeToLink);
-		if (linkedEdges.contains(similarEdge)) 
-		{
+		if (linkedEdges.contains(similarEdge)) {
 			return;
 		}
 		if (edgeToLink instanceof InputEdge) {
 			transitionToLink.addInputEdgeToLinkedEdges((InputEdge) edgeToLink);
-		}
-		else if (edgeToLink instanceof OutputEdge) {
+		} else if (edgeToLink instanceof OutputEdge) {
 			transitionToLink.addOutputEdgeToLinkedEdges((OutputEdge) edgeToLink);
-		}
-		else {
+		} else {
 			return;
 		}
 		edgeToLink.setLinkedPlace(placeToLink);
@@ -163,41 +162,37 @@ public class PetriNet implements IPetriNet {
 	@Override
 	public String toString() {
 		String string = new String();
-		for (int i = 0; i < this.listOfTransitions.size(); i++)
-		{
+		for (int i = 0; i < this.listOfTransitions.size(); i++) {
 			Transition currentTransition = this.listOfTransitions.get(i);
 			int inputNumber = currentTransition.getLinkedInputEdgesList().size();
 			int outputNumber = currentTransition.getLinkedOutputEdgesList().size();
 			String noPlaceString = "          ";
 			int maxNumber = Math.max(inputNumber, outputNumber);
 			for (int j = 0; j < maxNumber; j++) {
-				
+
 				// Input
 				if (j < inputNumber) {
 					string += currentTransition.getLinkedInputEdgesList().get(j).getLinkedPlace().toString();
 					string += " ";
 					string += currentTransition.getLinkedInputEdgesList().get(j).toString();
-					
-				}
-				else {
+
+				} else {
 					string += noPlaceString;
 				}
-				
+
 				// Transition
 				if (j == 0) {
 					string += " [" + i + "] ";
-				}
-				else {
+				} else {
 					string += "     ";
 				}
-				
+
 				// Output
 				if (j < outputNumber) {
 					string += currentTransition.getLinkedOutputEdgesList().get(j).toString();
 					string += " ";
 					string += currentTransition.getLinkedOutputEdgesList().get(j).getLinkedPlace().toString();
-				}
-				else {
+				} else {
 					string += noPlaceString;
 				}
 				string += "\n";
@@ -207,8 +202,7 @@ public class PetriNet implements IPetriNet {
 	}
 
 	@Override
-	public String toStringElements()
-	{
+	public String toStringElements() {
 		String string = new String();
 		string += "PetriNet :\n";
 		string += "  " + this.listOfPlaces.size() + " place(s)\n";
@@ -217,25 +211,24 @@ public class PetriNet implements IPetriNet {
 		string += "\n" + "List of places :\n";
 		for (int i = 0; i < this.listOfPlaces.size(); i++) {
 			Place selectedPlace = this.listOfPlaces.get(i);
-			string += "  " + "Place with " + selectedPlace.getTokensNumber() + " token(s) and " 
+			string += "  " + "Place with " + selectedPlace.getTokensNumber() + " token(s) and "
 					+ selectedPlace.getLinkedEdgesList().size() + " linked edge(s)\n";
 		}
 		string += "\n" + "List of transitions :\n";
 		for (int i = 0; i < this.listOfTransitions.size(); i++) {
 			Transition selectedTransition = this.listOfTransitions.get(i);
-			string += "  " + "Transition with " + selectedTransition.getLinkedInputEdgesList().size() 
-				+ " linked input edge(s) and " + selectedTransition.getLinkedOutputEdgesList().size()
-				+ " linked output edge(s)\n";
+			string += "  " + "Transition with " + selectedTransition.getLinkedInputEdgesList().size()
+					+ " linked input edge(s) and " + selectedTransition.getLinkedOutputEdgesList().size()
+					+ " linked output edge(s)\n";
 		}
 		string += "\n" + "List of edges :\n";
 		for (int i = 0; i < this.listOfEdges.size(); i++) {
 			Edge selectedEdge = this.listOfEdges.get(i);
-			string += "  " + selectedEdge.getClass().getSimpleName() + " with a weight of " 
-					+ selectedEdge.getWeight() + " between a place with " 
-					+ selectedEdge.getLinkedPlace().getTokensNumber() + " token(s) and a transition\n";
+			string += "  " + selectedEdge.getClass().getSimpleName() + " with a weight of " + selectedEdge.getWeight()
+					+ " between a place with " + selectedEdge.getLinkedPlace().getTokensNumber()
+					+ " token(s) and a transition\n";
 		}
 		return string;
-		
-		
+
 	}
 }

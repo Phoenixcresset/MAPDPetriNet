@@ -35,7 +35,7 @@ public interface IPetriNet {
 	public void removeZeroEdge(ZeroEdge zeroEdgeToRemove);
 
 	public void removeTransition(Transition transitionToRemove);
-	
+
 	public void linkPlaceWithTransistion(Edge edgeToLink, Place placeToLink, Transition transitionToLink);
 
 	public String toStringElements();
