@@ -16,6 +16,12 @@ class EdgeTest {
 		assertEquals(transition, edge.getLinkedTransition());
 		assertEquals(place, edge.getLinkedPlace());
 	}
+	
+	@Test
+	void testEmptyConstructor() {
+		final Edge edge = new Edge();
+		assertEquals(edge.getWeight(), 1);
+	}
 
 	@Test
 	void testGetWeight() {

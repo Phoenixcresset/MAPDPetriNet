@@ -1,19 +1,13 @@
 # MAPDPetriNet
 
-README pour l'utilisation du PetriNet
+## Introduction
+Ce projet est un modèle de PétriNet du groupe d'élève SREDNIAWA Florian et LAMBERTIN Jean-Baptiste dans le cadre de l'UE MAPD de deuxième année d'IMT Atlantique.
 
+## Utilisation
 
-# Notes en vrac
-
-- Jusqu'à où on pousse pour les erreurs ? Ca a l'air difficile et surtout fastidieux de toutes les faire (Le prof a dit qu'il n'en mettait pas, peut-être en mettre une ou deux pour montrer qu'on sait les utiliser)
-- Il faut faire des tests unitaires
-- Penser aux fonctions abstract pour la classe Edge
-
-## A voir avec l'interface :
-- J'ai l'impression que ça ne sert pas à grand chose d'ajouter des éléments dans le PétriNet... Peut-être que l'extension d'interface va en profiter
-- Est-ce toujours pertinent de donner à une Place accès à ses Edges ? Puisqu'elle n'intervient jamais dessus directement. Idem pour les Edges avec leur transition, à voir avec l'implémentation de l'interface.
-- Est-ce qu'il nous faut garder tous les getters et setters ? Certains ne sont jamais utilisés et un peu obsolètes, normalement ils ne sont faits que quand on a besoin des valeurs dans une autre classe, à demander aussi.
-
+Afin d'utiliser le PétriNet, il faut créer les éléments , les ajouter avec le PetriNet avec les fonctions dans la classe associée, et ensuite utiliser la fonction linkPlaceWithTransition afin de créer les connections voulues.
+Les transitions sont activables avec leur fonction step().
+Afin de vérifier l'évolution du réseau, il est possible d'utiliser la fonction toString() du PetriNet pour une représentation plus graphique, ou toStringElements pour une approche plus exhaustive.
 
 # Grille d'Auto-évaluation
 
@@ -37,9 +31,9 @@ README pour l'utilisation du PetriNet
 - [x] Les méthodes ne sont pas trop longues (ex : 15 lignes).
 
 ## Sûreté
-- [ ] Les méthodes se protègent (tests des paramètres, levée d'exception).
-- [ ] Chaque méthode possède au moins un test.
-- [ ] Les tests sont automatisés et s'enchainent pour vérifier la non-régression.
+- [x] Les méthodes se protègent (tests des paramètres, levée d'exception).
+- [x] Chaque méthode possède au moins un test.
+- [x] Les tests sont automatisés et s'enchainent pour vérifier la non-régression.
 
 ## Évolutivité / Maintenance
 - [x] Les classes importées sont nommées explicitement.
@@ -47,6 +41,4 @@ README pour l'utilisation du PetriNet
 - [x] Le code est factorisé.
 
 
-# Conception ayant changé :
-- La classe Edge a désormais accès à la Place et la Transition reliée, plutôt que les classes enfants InputEdge et OutputEdge
-- Suppression de value
+# Changements de conception : cf document word associé

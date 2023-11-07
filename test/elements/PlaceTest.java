@@ -45,6 +45,7 @@ class PlaceTest {
 		place.addEdgeToLinkedEdges(edge);
 		assertEquals(place.getLinkedEdgesList().get(0), edge);
 	}
+	
 
 	@Test
 	void testRemoveEdgeFromLinkedEdges() {
@@ -71,6 +72,17 @@ class PlaceTest {
 		final Place place = new Place(initialTokenNumber);
 		place.addTokens(tokenNumberToAdd);
 		assertEquals(expectedTokenNumber, place.getTokensNumber());
+	}
+	
+	@Test
+	void testAddNegativeTokens() {
+		final int initialTokenNumber = 5;
+		final int tokenNumberToAdd = -2;
+		final int expectedTokenNumber = initialTokenNumber;
+		final Place place = new Place(initialTokenNumber);
+		place.addTokens(tokenNumberToAdd);
+		assertEquals(expectedTokenNumber, place.getTokensNumber());
+		
 	}
 
 	@Test

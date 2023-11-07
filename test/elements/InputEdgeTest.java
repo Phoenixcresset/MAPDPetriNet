@@ -1,5 +1,6 @@
 package elements;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
@@ -24,6 +25,13 @@ public class InputEdgeTest {
 		assertEquals(transition, edge.getLinkedTransition());
 		assertEquals(place, edge.getLinkedPlace());
 	}
+	
+	@Test
+	void testEmptyConstructor() {
+		final InputEdge edge = new InputEdge();
+		assertEquals(edge.getWeight(), 1);
+	}
+
 
 	// Methods
 	@Test
