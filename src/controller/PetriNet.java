@@ -168,6 +168,7 @@ public class PetriNet implements IPetriNet {
 			Transition currentTransition = this.listOfTransitions.get(i);
 			int inputNumber = currentTransition.getLinkedInputEdgesList().size();
 			int outputNumber = currentTransition.getLinkedOutputEdgesList().size();
+			String noPlaceString = "          ";
 			int maxNumber = Math.max(inputNumber, outputNumber);
 			for (int j = 0; j < maxNumber; j++) {
 				
@@ -179,22 +180,16 @@ public class PetriNet implements IPetriNet {
 					
 				}
 				else {
-					string += "     ";
-					string += " ";
-					string += "    ";
+					string += noPlaceString;
 				}
-				
-				string += " ";
 				
 				// Transition
 				if (j == 0) {
-					string += "[" + i + "]";
+					string += " [" + i + "] ";
 				}
 				else {
-					string += "   ";
+					string += "     ";
 				}
-				
-				string += " ";
 				
 				// Output
 				if (j < outputNumber) {
@@ -203,9 +198,7 @@ public class PetriNet implements IPetriNet {
 					string += currentTransition.getLinkedOutputEdgesList().get(j).getLinkedPlace().toString();
 				}
 				else {
-					string += "    ";
-					string += " ";
-					string += "     ";
+					string += noPlaceString;
 				}
 				string += "\n";
 			}
@@ -213,4 +206,36 @@ public class PetriNet implements IPetriNet {
 		return string;
 	}
 
+	@Override
+	public String toStringElements()
+	{
+		String string = new String();
+		string += "PetriNet :\n";
+		string += "  " + this.listOfPlaces.size() + " place(s)\n";
+		string += "  " + this.listOfTransitions.size() + " transition(s)\n";
+		string += "  " + this.listOfEdges.size() + " edge(s)\n";
+		string += "\n" + "List of places :\n";
+		for (int i = 0; i < this.listOfPlaces.size(); i++) {
+			Place selectedPlace = this.listOfPlaces.get(i);
+			string += "  " + "Place with " + selectedPlace.getTokensNumber() + " token(s) and " 
+					+ selectedPlace.getLinkedEdgesList().size() + " linked edge(s)\n";
+		}
+		string += "\n" + "List of transitions :\n";
+		for (int i = 0; i < this.listOfTransitions.size(); i++) {
+			Transition selectedTransition = this.listOfTransitions.get(i);
+			string += "  " + "Transition with " + selectedTransition.getLinkedInputEdgesList().size() 
+				+ " linked input edge(s) and " + selectedTransition.getLinkedOutputEdgesList().size()
+				+ " linked output edge(s)\n";
+		}
+		string += "\n" + "List of edges :\n";
+		for (int i = 0; i < this.listOfEdges.size(); i++) {
+			Edge selectedEdge = this.listOfEdges.get(i);
+			string += "  " + selectedEdge.getClass().getSimpleName() + " with a weight of " 
+					+ selectedEdge.getWeight() + " between a place with " 
+					+ selectedEdge.getLinkedPlace().getTokensNumber() + " token(s) and a transition\n";
+		}
+		return string;
+		
+		
+	}
 }

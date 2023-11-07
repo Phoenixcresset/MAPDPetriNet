@@ -1,5 +1,7 @@
 package controller;
 
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import elements.Edge;
 import elements.EmptyingEdge;
@@ -14,8 +16,7 @@ import elements.ZeroEdge;
  *
  */
 
-
-@SuppressWarnings("unused")
+@Disabled
 public class Main {
 	
 	/**
@@ -43,6 +44,7 @@ public class Main {
 		System.out.println("step\n");
 		mainTransition.step();
 		System.out.println(petriNet.toString());
+		System.out.println(petriNet.toStringElements());
 	}
 
 }
