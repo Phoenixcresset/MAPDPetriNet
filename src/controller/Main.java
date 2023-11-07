@@ -1,5 +1,8 @@
 package controller;
 
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
+
 import elements.Edge;
 import elements.EmptyingEdge;
 import elements.InputEdge;
@@ -12,7 +15,8 @@ import elements.ZeroEdge;
  * This class is used to run the project.
  *
  */
-@SuppressWarnings("unused")
+
+@Disabled
 public class Main {
 	
 	/**
@@ -40,6 +44,7 @@ public class Main {
 		System.out.println("step\n");
 		mainTransition.step();
 		System.out.println(petriNet.toString());
+		System.out.println(petriNet.toStringElements());
 	}
 
 }

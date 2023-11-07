@@ -6,7 +6,7 @@ package elements;
 public class ZeroEdge extends InputEdge {
 
 	// Constructor
-	public ZeroEdge(int weight, Transition linkedTransition, Place linkedPlace) {
+	public ZeroEdge(Transition linkedTransition, Place linkedPlace) {
 		super(0, linkedTransition, linkedPlace);
 	}
 	
@@ -21,7 +21,7 @@ public class ZeroEdge extends InputEdge {
 	 */
 	@Override
 	public boolean checkIfTriggerable() {
-		return this.getLinkedPlace().checkIfTempty();
+		return this.getLinkedPlace().checkIfEmpty();
 	}
 	
 	/**

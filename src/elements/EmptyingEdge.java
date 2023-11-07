@@ -23,7 +23,7 @@ public class EmptyingEdge extends InputEdge {
 	 */
 	@Override
 	public boolean checkIfTriggerable() {
-		return (this.getLinkedPlace().checkIfTempty() == false);
+		return (this.getLinkedPlace().checkIfEmpty() == false);
 	}
 
 	/**
