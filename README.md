@@ -1,7 +1,7 @@
 # MAPDPetriNet
 
 ## Introduction
-Ce projet est un modèle de PétriNet du groupe d'élève SREDNIAWA Florian et LAMBERTIN Jean-Baptiste dans le cadre de l'UE MAPD de deuxième année d'IMT Atlantique.
+Ce projet est un modèle de PétriNet du groupe d'élève SREDNIAWA Florian et LAMBERTIN Jean-Baptiste dans le cadre de l'UE MAPD de deuxième année en TAF DCL d'IMT Atlantique.
 
 ## Utilisation
 
@@ -13,15 +13,16 @@ Afin de vérifier l'évolution du réseau, il est possible d'utiliser la fonctio
 
 ## Commentaires
 - [x] Code écrit en anglais (nom de variables, méthodes, fonctions, classes, packages, etc.).
-- [x] Commentaires écrits dans une seule langue (commentaires en français = pour dialoguer tous les deux et donc à supprimer à terme).
+- [x] Commentaires écrits dans une seule langue.
 - [x] Les commentaires (javadoc) des méthodes publiques en permettent la réutilisation.
 - [x] Il y a dans le code des commentaires à destination des mainteneurs.
+- [x] mise à disposition d'un main contenant du code montrant le fonctionnnement du reseau.  
 
 ## Style et conventions
 - [x] Les indentations sont homogènes (utiliser Eclipse pour auto formatter).
 - [x] La forme des noms respecte le style du language (CamelCase pour les variables, CAPITALES pour les constantes).
 - [x] L'ordre des déclarations est toujours le même (attributs, constructeurs, setters et getters, méthodes).
-- [x] Les noms sont porteurs de sens (je coche, tu me dis si certains te déplaisent).
+- [x] Les noms sont porteurs de sens.
 
 ## Modularité
 - [x] Le paquetage racine ne contient directement aucune classe.
