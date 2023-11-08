@@ -8,6 +8,7 @@ Ce projet est un modèle de PétriNet du groupe d'élève SREDNIAWA Florian et L
 Afin d'utiliser le PétriNet, il faut créer les éléments , les ajouter avec le PetriNet avec les fonctions dans la classe associée, et ensuite utiliser la fonction linkPlaceWithTransition afin de créer les connections voulues.
 Les transitions sont activables avec leur fonction step().
 Afin de vérifier l'évolution du réseau, il est possible d'utiliser la fonction toString() du PetriNet pour une représentation plus graphique, ou toStringElements pour une approche plus exhaustive.
+L'exécution des tests se fait en lançant JUnit dans Eclipse via Coverage As -> JUnit Test.
 
 # Grille d'Auto-évaluation
 
@@ -16,10 +17,10 @@ Afin de vérifier l'évolution du réseau, il est possible d'utiliser la fonctio
 - [x] Commentaires écrits dans une seule langue.
 - [x] Les commentaires (javadoc) des méthodes publiques en permettent la réutilisation.
 - [x] Il y a dans le code des commentaires à destination des mainteneurs.
-- [x] mise à disposition d'un main contenant du code montrant le fonctionnnement du reseau.  
+- [x] Mise à disposition d'un main contenant du code montrant le fonctionnnement du reseau.  
 
 ## Style et conventions
-- [x] Les indentations sont homogènes (utiliser Eclipse pour auto formatter).
+- [x] Les indentations sont homogènes.
 - [x] La forme des noms respecte le style du language (CamelCase pour les variables, CAPITALES pour les constantes).
 - [x] L'ordre des déclarations est toujours le même (attributs, constructeurs, setters et getters, méthodes).
 - [x] Les noms sont porteurs de sens.
