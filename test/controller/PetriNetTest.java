@@ -35,7 +35,7 @@ class PetriNetTest {
 	public void testGetListOfEdges() {
 		final PetriNet petriNet = new PetriNet();
 		final InputEdge edge = new InputEdge(5);
-		petriNet.addInputEdge(edge);
+		petriNet.addEdge(edge);
 		assertEquals(petriNet.getListOfEdges().get(0), edge);
 	}
 
@@ -59,7 +59,7 @@ class PetriNetTest {
 	public void testAddInputEdge() {
 		final PetriNet petriNet = new PetriNet();
 		final InputEdge edge = new InputEdge(5);
-		petriNet.addInputEdge(edge);
+		petriNet.addEdge(edge);
 		assertEquals(petriNet.getListOfEdges().get(0), edge);
 	}
 
@@ -67,7 +67,7 @@ class PetriNetTest {
 	public void testAddOutputEdge() {
 		final PetriNet petriNet = new PetriNet();
 		final OutputEdge edge = new OutputEdge(5);
-		petriNet.addOutputEdge(edge);
+		petriNet.addEdge(edge);
 		assertEquals(petriNet.getListOfEdges().get(0), edge);
 	}
 
@@ -75,7 +75,7 @@ class PetriNetTest {
 	public void testAddEmptyingEdge() {
 		final PetriNet petriNet = new PetriNet();
 		final EmptyingEdge edge = new EmptyingEdge();
-		petriNet.addEmptyingEdge(edge);
+		petriNet.addEdge(edge);
 		assertEquals(petriNet.getListOfEdges().get(0), edge);
 	}
 
@@ -83,7 +83,7 @@ class PetriNetTest {
 	public void testAddZeroEdge() {
 		final PetriNet petriNet = new PetriNet();
 		final ZeroEdge edge = new ZeroEdge();
-		petriNet.addZeroEdge(edge);
+		petriNet.addEdge(edge);
 		assertEquals(petriNet.getListOfEdges().get(0), edge);
 	}
 
@@ -106,10 +106,10 @@ class PetriNetTest {
 		final OutputEdge outputEdge = new OutputEdge(5);
 		petriNet.addPlace(place);
 		petriNet.addTransition(transition);
-		petriNet.addInputEdge(inputEdge);
+		petriNet.addEdge(inputEdge);
 		petriNet.linkPlaceWithTransistion(inputEdge, place, transition);
 		petriNet.addTransition(transition2);
-		petriNet.addOutputEdge(outputEdge);
+		petriNet.addEdge(outputEdge);
 		petriNet.linkPlaceWithTransistion(outputEdge, place, transition2);
 		petriNet.removePlace(place);
 		assertEquals(petriNet.getListOfPlaces().size(), 0);
@@ -137,10 +137,10 @@ class PetriNetTest {
 		final OutputEdge outputEdge = new OutputEdge(5);
 		petriNet.addPlace(place);
 		petriNet.addTransition(transition);
-		petriNet.addInputEdge(inputEdge);
+		petriNet.addEdge(inputEdge);
 		petriNet.linkPlaceWithTransistion(inputEdge, place, transition);
 		petriNet.addPlace(place2);
-		petriNet.addOutputEdge(outputEdge);
+		petriNet.addEdge(outputEdge);
 		petriNet.linkPlaceWithTransistion(outputEdge, place2, transition);
 		petriNet.removeTransition(transition);
 		assertEquals(petriNet.getListOfPlaces().size(), 2);
@@ -153,8 +153,8 @@ class PetriNetTest {
 	public void testRemoveInputEdge() {
 		final PetriNet petriNet = new PetriNet();
 		final InputEdge edge = new InputEdge(5);
-		petriNet.addInputEdge(edge);
-		petriNet.removeInputEdge(edge);
+		petriNet.addEdge(edge);
+		petriNet.removeEdge(edge);
 		assertEquals(petriNet.getListOfEdges().size(), 0);
 	}
 
@@ -162,8 +162,8 @@ class PetriNetTest {
 	public void testRemoveOutputEdge() {
 		final PetriNet petriNet = new PetriNet();
 		final OutputEdge edge = new OutputEdge(5);
-		petriNet.addOutputEdge(edge);
-		petriNet.removeOutputEdge(edge);
+		petriNet.addEdge(edge);
+		petriNet.removeEdge(edge);
 		assertEquals(petriNet.getListOfEdges().size(), 0);
 	}
 
@@ -171,8 +171,8 @@ class PetriNetTest {
 	public void testRemoveEmptyingEdge() {
 		final PetriNet petriNet = new PetriNet();
 		final EmptyingEdge edge = new EmptyingEdge();
-		petriNet.addEmptyingEdge(edge);
-		petriNet.removeEmptyingEdge(edge);
+		petriNet.addEdge(edge);
+		petriNet.removeEdge(edge);
 		assertEquals(petriNet.getListOfEdges().size(), 0);
 	}
 
@@ -180,8 +180,8 @@ class PetriNetTest {
 	public void testRemoveZeroEdge() {
 		final PetriNet petriNet = new PetriNet();
 		final ZeroEdge edge = new ZeroEdge();
-		petriNet.addZeroEdge(edge);
-		petriNet.removeZeroEdge(edge);
+		petriNet.addEdge(edge);
+		petriNet.removeEdge(edge);
 		assertEquals(petriNet.getListOfEdges().size(), 0);
 	}
 
@@ -194,7 +194,7 @@ class PetriNetTest {
 		final OutputEdge edge = new OutputEdge(edgeWeight);
 		petriNet.addPlace(place);
 		petriNet.addTransition(transition);
-		petriNet.addOutputEdge(edge);
+		petriNet.addEdge(edge);
 		petriNet.linkPlaceWithTransistion(edge, place, transition);
 		assertEquals(place.getLinkedEdgesList().get(0), edge);
 		assertEquals(transition.getLinkedEdgesList().get(0), edge);
@@ -245,8 +245,8 @@ class PetriNetTest {
 		OutputEdge outputEdge2 = new OutputEdge(2);
 		petriNet.addPlace(inputPlace);
 		petriNet.addPlace(outputPlace);
-		petriNet.addInputEdge(inputEdge);
-		petriNet.addOutputEdge(outputEdge);
+		petriNet.addEdge(inputEdge);
+		petriNet.addEdge(outputEdge);
 		petriNet.addTransition(mainTransition);
 		petriNet.linkPlaceWithTransistion(outputEdge, outputPlace, mainTransition);
 		petriNet.linkPlaceWithTransistion(inputEdge, inputPlace, mainTransition);
@@ -273,7 +273,7 @@ class PetriNetTest {
 		Place inputPlace = new Place(7);
 		InputEdge inputEdge = new InputEdge(5);
 		petriNet.addPlace(inputPlace);
-		petriNet.addInputEdge(inputEdge);
+		petriNet.addEdge(inputEdge);
 		petriNet.addTransition(mainTransition);
 		petriNet.linkPlaceWithTransistion(inputEdge, inputPlace, mainTransition);
 		String expected = "( 7 ) -5-> [0]           \n";
@@ -292,8 +292,8 @@ class PetriNetTest {
 		OutputEdge outputEdge2 = new OutputEdge(2);
 		petriNet.addPlace(inputPlace);
 		petriNet.addPlace(outputPlace);
-		petriNet.addInputEdge(inputEdge);
-		petriNet.addOutputEdge(outputEdge);
+		petriNet.addEdge(inputEdge);
+		petriNet.addEdge(outputEdge);
 		petriNet.addTransition(mainTransition);
 		petriNet.linkPlaceWithTransistion(outputEdge, outputPlace, mainTransition);
 		petriNet.linkPlaceWithTransistion(inputEdge, inputPlace, mainTransition);
@@ -315,8 +315,8 @@ class PetriNetTest {
 		OutputEdge outputEdge2 = new OutputEdge(2);
 		petriNet.addPlace(inputPlace);
 		petriNet.addPlace(outputPlace);
-		petriNet.addInputEdge(inputEdge);
-		petriNet.addOutputEdge(outputEdge);
+		petriNet.addEdge(inputEdge);
+		petriNet.addEdge(outputEdge);
 		petriNet.addTransition(mainTransition);
 		petriNet.linkPlaceWithTransistion(outputEdge, outputPlace, mainTransition);
 		petriNet.linkPlaceWithTransistion(inputEdge, inputPlace, mainTransition);

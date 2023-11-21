@@ -4,12 +4,10 @@ import java.util.LinkedList;
 import java.util.List;
 
 import elements.Edge;
-import elements.EmptyingEdge;
 import elements.InputEdge;
 import elements.OutputEdge;
 import elements.Place;
 import elements.Transition;
-import elements.ZeroEdge;
 
 /**
  * Class used to create and edit a PetriNet.
@@ -44,25 +42,8 @@ public class PetriNet implements IPetriNet {
 	}
 
 	@Override
-	public void addInputEdge(InputEdge inputEdgeToAdd) {
-		this.listOfEdges.add(inputEdgeToAdd);
-
-	}
-
-	@Override
-	public void addOutputEdge(OutputEdge outputEdgeToAdd) {
-		this.listOfEdges.add(outputEdgeToAdd);
-
-	}
-
-	@Override
-	public void addEmptyingEdge(EmptyingEdge emptyingEdgeToAdd) {
-		this.listOfEdges.add(emptyingEdgeToAdd);
-	}
-
-	@Override
-	public void addZeroEdge(ZeroEdge zeroEdgeToAdd) {
-		this.listOfEdges.add(zeroEdgeToAdd);
+	public void addEdge(Edge edgeToAdd) {
+		this.listOfEdges.add(edgeToAdd);
 
 	}
 
@@ -90,25 +71,17 @@ public class PetriNet implements IPetriNet {
 		this.listOfPlaces.remove(placeToRemove);
 	}
 
-	@Override
-	public void removeInputEdge(InputEdge inputEdgeToRemove) {
-		this.listOfEdges.remove(inputEdgeToRemove);
-	}
-
-	@Override
-	public void removeOutputEdge(OutputEdge outputEdgeToRemove) {
-		this.listOfEdges.remove(outputEdgeToRemove);
-	}
-
-	@Override
-	public void removeEmptyingEdge(EmptyingEdge emptyingEdgeToRemove) {
-		this.listOfEdges.remove(emptyingEdgeToRemove);
-	}
-
-	@Override
-	public void removeZeroEdge(ZeroEdge zeroEdgeToRemove) {
-		this.listOfEdges.remove(zeroEdgeToRemove);
-	}
+    @Override
+    public void removeEdge(Edge edgeToRemove) {
+        // remove edge frm linked transition and place only if they are not null
+        if (edgeToRemove.getLinkedTransition() != null) {
+            edgeToRemove.getLinkedTransition().removeEdgeFromLinkedEdges(edgeToRemove);
+        }
+        if (edgeToRemove.getLinkedPlace() != null) {
+            edgeToRemove.getLinkedPlace().removeEdgeFromLinkedEdges(edgeToRemove);
+        }
+        this.listOfEdges.remove(edgeToRemove);
+    }
 
 	@Override
 	public void removeTransition(Transition transitionToRemove) {
@@ -148,13 +121,14 @@ public class PetriNet implements IPetriNet {
 			return;
 		}
 		if (edgeToLink instanceof InputEdge) {
+
 			transitionToLink.addInputEdgeToLinkedEdges((InputEdge) edgeToLink);
 		} else if (edgeToLink instanceof OutputEdge) {
 			transitionToLink.addOutputEdgeToLinkedEdges((OutputEdge) edgeToLink);
 		} else {
 			return;
 		}
-		edgeToLink.setLinkedPlace(placeToLink);
+        edgeToLink.setLinkedPlace(placeToLink);
 		edgeToLink.setLinkedTransition(transitionToLink);
 		placeToLink.addEdgeToLinkedEdges(edgeToLink);
 	}

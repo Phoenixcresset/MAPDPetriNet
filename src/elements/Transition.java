@@ -111,13 +111,8 @@ public class Transition {
 	 * Edges if that is the case.
 	 */
 	public void step() {
-		boolean allEdgesAreTriggerable = true;
-		for (int i = 0; i < linkedInputEdgesList.size(); i++) {
-			if (linkedInputEdgesList.get(i).checkIfTriggerable() == false) {
-				allEdgesAreTriggerable = false;
-				break;
-			}
-		}
+		boolean allEdgesAreTriggerable = checkIfStepIsPossible();
+        
 		if (allEdgesAreTriggerable == false) {
 			return;
 		}
@@ -129,6 +124,21 @@ public class Transition {
 			linkedOutputEdgesList.get(i).trigger();
 		}
 	}
+
+    /**
+     * Checks if all InputEdges are triggerable, to be used at the start of a step.
+     * @return true if all InputEdges are triggerable, false otherwise
+     */
+    public boolean checkIfStepIsPossible() {
+        boolean allEdgesAreTriggerable = true;
+        for (int i = 0; i < linkedInputEdgesList.size(); i++) {
+            if (linkedInputEdgesList.get(i).checkIfTriggerable() == false) {
+                allEdgesAreTriggerable = false;
+                break;
+            }
+        }
+        return allEdgesAreTriggerable;
+    }
 
 	@Override
 	public String toString() {
